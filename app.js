@@ -8,21 +8,23 @@ const sorteo = document.getElementById("resultado");
 function agregarAmigo() {
     if (!ingresoAmigo.value) {
         alert("Ingrese un nombre valido");
-    } else {
+    }
+    else if (parseInt(ingresoAmigo.value) === parseInt(ingresoAmigo.value)){
+        alert("No se aceptan números");
+    }
+    else {
         amigos.push(ingresoAmigo.value);
         lista.innerHTML += `<li>${ingresoAmigo.value}</li>`;
     }
-    ingresoAmigo.value = " ";
+    ingresoAmigo.value = "";
 };
 
 function sortearAmigo() {
     const azar = Math.floor(Math.random() * amigos.length);
-    console.log(Math.floor(Math.random() * amigos.length))
     const amigoSecreto = amigos[azar];
     sorteo.innerHTML = `<li>${amigoSecreto}</li>`;
-    lista.innerHTML = " ";
+    lista.innerHTML = "";
 };
-
 
 
 
